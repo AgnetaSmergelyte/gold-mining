@@ -16,6 +16,7 @@ $color-dark-second: #400E32;
   padding: 0;
   margin: 0;
 }
+
 .container {
   min-width: 100vw;
   min-height: 100vh;
@@ -25,6 +26,7 @@ $color-dark-second: #400E32;
   align-items: center;
   justify-content: center;
 }
+
 .game-board {
   background-color: $color-dark-second;
   @include box-shadow-dark;
@@ -34,19 +36,23 @@ $color-dark-second: #400E32;
   padding: 10px;
   position: relative;
 }
+
 .component {
   background-color: $color-dark-prime;
   border-radius: 10px;
+
   & > div {
     background-color: $color-light-prime;
     border-radius: 10px;
   }
 }
+
 .upgrades {
   width: 100%;
   padding: 10px;
   display: flex;
   gap: 10px;
+
   & > div {
     width: 150px;
     height: 100px;
@@ -57,6 +63,7 @@ $color-dark-second: #400E32;
 
   }
 }
+
 .main {
   position: absolute;
   top: 130px;
@@ -69,12 +76,14 @@ $color-dark-second: #400E32;
   gap: 10px;
   padding: 10px;
   text-align: center;
+
   h1 {
     font-size: 2.5rem;
     color: gold;
     margin: 30px;
   }
 }
+
 .inventory {
   background-color: $color-dark-prime;
   border-radius: 10px;
@@ -83,10 +92,12 @@ $color-dark-second: #400E32;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+
   & > div {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+
     & > div {
       background-color: $color-light-prime;
       border-radius: 10px;
@@ -96,6 +107,7 @@ $color-dark-second: #400E32;
     }
   }
 }
+
 .btn-small {
   background-color: $color-light-second-trans;
   border-radius: 10px;
@@ -105,10 +117,12 @@ $color-dark-second: #400E32;
   padding: 5px;
   display: flex;
   justify-content: center;
+
   &:hover {
     background-color: $color-light-second;
   }
 }
+
 .btn-gold {
   background-color: $color-light-prime;
   border-radius: 10px;
@@ -119,44 +133,64 @@ $color-dark-second: #400E32;
   display: flex;
   justify-content: center;
   font-weight: bold;
+
   &:hover {
-    //background-color: $color-light-second;
     background-color: gold;
   }
 }
+
 .btn-gold-big {
   @extend .btn-gold;
   padding: 50px 15px;
   font-size: 2rem;
 }
+
 .price-label {
   display: flex;
   justify-content: center;
   padding: 30px;
+
   h2 {
     color: $color-light-prime;
     font-size: 1.5rem;
   }
+
   span {
     color: gold;
     font-size: 1.7rem;
   }
 }
+
 .right-side {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+
 .energy-bar {
   border: $color-dark-prime solid 2px;
   height: 50px;
   border-radius: 10px;
   margin: 10px 0;
+  text-align: center;
+
   & > div {
     background-color: $color-light-second;
     height: 100%;
     border-radius: 8px;
   }
+}
+
+.energy-error {
+  color: red;
+  font-size: 2rem;
+  font-weight: bold;
+  bottom: 0;
+}
+
+.disabled {
+  opacity: 0.7;
+  pointer-events: none;
 }
 
 

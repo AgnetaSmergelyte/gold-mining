@@ -5,6 +5,7 @@ import GoldPrice from "./components/GoldPrice";
 import EnergyBar from "./components/EnergyBar";
 import Dig from "./components/Dig";
 import {useState} from "react";
+import Error from "./components/Error";
 
 function App() {
     const maxEnergyUsePerDig = 10;
@@ -15,15 +16,22 @@ function App() {
     const [goldArr, setGoldArr] = useState([]);
     const [inventoryLimit, setInventoryLimit] = useState(3);
     const [goldPrice, setGoldPrice] = useState(13);
-    const [upgradesPrices, setUpgradesPrices] = useState([50, 50, 100])
+    const [upgradesPrices, setUpgradesPrices] = useState([50, 50, 100]);
+    const [inventoryFull, setInventoryFull] = useState(false);
+    const [energyError, setEnergyError] = useState(false);
 
     function digGold() {
         const energyUse = Math.floor(Math.random() * maxEnergyUsePerDig) + 1;
-        if (energy - energyUse <= 0) return;
-        if (goldArr.length === inventoryLimit) {
-            alert("inventory full");
+        if (energy - energyUse <= 0) {
+            setEnergyError(true);
+            setTimeout(() => {
+                setEnergyError(false);
+            }, 1000);
             return;
         }
+        if (goldArr.length === inventoryLimit) {
+            return;
+        } else if (goldArr.length === inventoryLimit - 1) setInventoryFull(true);
         setEnergy(energy - energyUse);
         const goldDug = Number(((Math.floor(Math.random()*100*(maxGoldPerDig)))/100+0.01).toFixed(2));
         setGoldArr([...goldArr, goldDug]);
@@ -36,7 +44,8 @@ function App() {
         })
         moneyForGold = Number(moneyForGold.toFixed(2));
         setMoney(money + moneyForGold);
-        setGoldArr([])
+        setGoldArr([]);
+        setInventoryFull(false);
         //new gold price
         const newPrice = Math.floor(Math.random() * (goldPriceRange[1] - goldPriceRange[0] + 1) + goldPriceRange[0]);
         setGoldPrice(newPrice);
@@ -64,6 +73,7 @@ function App() {
                 break;
             case 'inventory-slot':
                 setInventoryLimit(inventoryLimit + 1);
+                setInventoryFull(false);
                 break;
             default:
                 return;
@@ -73,21 +83,24 @@ function App() {
     return (
         <div className="container">
             <div className="game-board">
-                <Upgrades upgradesPrices={upgradesPrices} upgradeFunc={upgrade}/>
+                <Upgrades upgradesPrices={upgradesPrices} upgradeFunc={upgrade} money={money}/>
                 <div className="main">
-                    <Inventory goldArr={goldArr} sellGold={sellGold}/>
+                    <Inventory
+                        goldArr={goldArr}
+                        sellGold={sellGold}
+                        inventoryFull={inventoryFull}
+                    />
                     <div className="right-side">
                         <GoldPrice price={goldPrice}/>
                         <h1>MONEY {money.toFixed(2)}$</h1>
                         <div>
                             <EnergyBar energy={energy} />
-                            <Dig digFunc={digGold}/>
+                            {energyError ? <Error /> : <Dig digFunc={digGold}></Dig>}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    );
-}
+    );}
 
 export default App;
