@@ -10,7 +10,7 @@ import Error from "./components/Error";
 function App() {
     const maxEnergyUsePerDig = 10;
     const goldPriceRange = [10, 30]
-    const [money, setMoney] = useState(1000);
+    const [money, setMoney] = useState(100);
     const [energy, setEnergy] = useState(100);
     const [maxGoldPerDig, setMaxGoldPerDig] = useState(1);
     const [goldArr, setGoldArr] = useState([]);
