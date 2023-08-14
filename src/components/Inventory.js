@@ -1,11 +1,17 @@
 import React from 'react';
 import '../App.css';
+import golImg from '../images/gold.png'
 
 const Inventory = ({goldArr, sellGold, inventoryFull}) => {
     return (
         <div className="inventory">
             <div>
-                {goldArr.map((x,i) => <div key={i}>{x}g gold</div>)}
+                {goldArr.map((x,i) => 
+                    <div key={i}>
+                        <img src={golImg} alt="dd"/>
+                        {x}g gold
+                    </div>
+                )}
             </div>
             {inventoryFull && <h1>Inventory Full</h1>}
             <h3 className="btn-gold" onClick={sellGold}>SELL GOLD</h3>

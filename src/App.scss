@@ -16,7 +16,9 @@ $color-dark-second: #400E32;
   padding: 0;
   margin: 0;
 }
-
+img {
+  width: 100%;
+}
 .container {
   min-width: 100vw;
   min-height: 100vh;
@@ -102,7 +104,7 @@ $color-dark-second: #400E32;
       background-color: $color-light-prime;
       border-radius: 10px;
       width: 100px;
-      height: 100px;
+      height: 125px;
       padding: 10px;
     }
   }
