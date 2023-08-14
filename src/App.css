@@ -25,7 +25,7 @@ img {
   -webkit-box-shadow: 0px 0px 12px 5px rgba(64, 14, 50, 0.75);
   -moz-box-shadow: 0px 0px 12px 5px rgba(64, 14, 50, 0.75);
   width: 95vw;
-  height: 95vh;
+  min-height: 95vh;
   border-radius: 20px;
   padding: 10px;
   position: relative;
@@ -48,7 +48,7 @@ img {
 }
 .upgrades > div {
   width: 150px;
-  height: 100px;
+  height: 130px;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -57,7 +57,7 @@ img {
 
 .main {
   position: absolute;
-  top: 130px;
+  top: 160px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -82,6 +82,10 @@ img {
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  overflow: auto;
+}
+.inventory p {
+  color: #F2CD5C;
 }
 .inventory > div {
   display: flex;
