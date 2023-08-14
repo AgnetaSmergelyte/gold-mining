@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/gold-mining/static/css/main.e656e851.css",
+    "main.js": "/gold-mining/static/js/main.fadc0c8f.js",
+    "static/media/gold.png": "/gold-mining/static/media/gold.f50b092ea155df4aedff.png",
+    "index.html": "/gold-mining/index.html",
+    "main.e656e851.css.map": "/gold-mining/static/css/main.e656e851.css.map",
+    "main.fadc0c8f.js.map": "/gold-mining/static/js/main.fadc0c8f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e656e851.css",
+    "static/js/main.fadc0c8f.js"
+  ]
+}
