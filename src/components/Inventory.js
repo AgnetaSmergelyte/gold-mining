@@ -8,8 +8,8 @@ const Inventory = ({goldArr, sellGold, inventoryFull}) => {
             <div>
                 {goldArr.map((x,i) => 
                     <div key={i}>
-                        <img src={golImg} alt="dd"/>
-                        {x}g gold
+                        <img src={golImg} alt=""/>
+                        {x}g
                     </div>
                 )}
             </div>

@@ -47,8 +47,8 @@ function App() {
         setGoldArr([]);
         setInventoryFull(false);
         //new gold price
-        const newPrice = Math.floor(Math.random() * (goldPriceRange[1] - goldPriceRange[0] + 1) + goldPriceRange[0]);
-        setGoldPrice(newPrice);
+        const newPrice = ((Math.random() * (goldPriceRange[1] - goldPriceRange[0]) + goldPriceRange[0])).toFixed(2);
+        setGoldPrice(Number(newPrice));
     }
 
     function upgrade(name, priceIndex) {
